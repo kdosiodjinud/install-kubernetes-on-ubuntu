@@ -45,4 +45,6 @@ $ helm install haproxy-ingress haproxy-ingress/haproxy-ingress --create-namespac
 ```
 
 ## From local machine
+```sh
 $ scp root@your-master-ip-here:/etc/kubernetes/admin.conf ~/.kube/config
+```
