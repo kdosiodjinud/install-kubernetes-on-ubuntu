@@ -44,6 +44,10 @@ $ helm install haproxy-ingress haproxy-ingress/haproxy-ingress --create-namespac
 
 vim /var/lib/kubelet/kubeadm-flags.env //and add atribute --resolv-conf=''
 
+echo 'if $programname == "systemd" and ($msg contains "Starting Session" or $msg contains "Started Session" or $msg contains "Created slice" or $msg contains "Starting user-" or $msg contains "Starting User Slice of" or $msg contains "Removed session" or $msg contains "Removed slice User Slice of" or $msg contains "Stopping User Slice of") then stop' >/etc/rsyslog.d/ignore-systemd-session-slice.conf
+
+systemctl restart rsyslog
+
 
 ```
 
