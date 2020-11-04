@@ -42,6 +42,9 @@ $ snap install helm --clasic
 $ helm repo add haproxy-ingress https://haproxy-ingress.github.io/charts 
 $ helm install haproxy-ingress haproxy-ingress/haproxy-ingress --create-namespace --namespace=ingress-controller --set controller.hostNetwork=true
 
+vim /var/lib/kubelet/kubeadm-flags.env //and add atribute --resolv-conf=''
+
+
 ```
 
 ## From local machine
