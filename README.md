@@ -42,5 +42,7 @@ $ snap install helm --clasic
 $ helm repo add haproxy-ingress https://haproxy-ingress.github.io/charts 
 $ helm install haproxy-ingress haproxy-ingress/haproxy-ingress --create-namespace --namespace=ingress-controller --set controller.hostNetwork=true
 
+```
+
 ## From local machine
 $ scp root@your-master-ip-here:/etc/kubernetes/admin.conf ~/.kube/config
