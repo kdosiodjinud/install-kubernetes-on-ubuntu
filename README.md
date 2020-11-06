@@ -33,6 +33,8 @@ $ systemctl restart docker
 
 $ echo "symfony-vps.reddwarf.cloud" > /etc/hostname
 
+$ reboot
+
 $ kubeadm init --pod-network-cidr=192.168.0.0/16 --control-plane-endpoint "89.221.220.50:6443"
 
 $ kubectl taint nodes --all node-role.kubernetes.io/master-
