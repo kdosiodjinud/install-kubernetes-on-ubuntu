@@ -20,6 +20,8 @@ EOF
 
 $ swapoff -a // maybe edit /etc/fstab
 
+$ apt update
+
 $ apt -y install apt-transport-https ca-certificates software-properties-common curl kubelet kubeadm kubectl docker-ce kubernetes-cni
 
 $ apt-mark hold kubelet kubeadm kubectl kubernetes-cni
