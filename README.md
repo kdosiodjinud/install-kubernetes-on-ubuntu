@@ -41,6 +41,8 @@ $ echo "kubectl taint nodes --all node-role.kubernetes.io/master-" >> /etc/sysct
 $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
 $ snap install helm --clasic
+$ helm repo add nginx-stable https://helm.nginx.com/stable
+$ helm update
 
 $ helm install stable/nginx-ingress --set controller.hostNetwork=true,controller.service.type="",controller.kind=DaemonSet
 
