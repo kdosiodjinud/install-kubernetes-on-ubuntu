@@ -42,7 +42,7 @@ $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl vers
 
 $ snap install helm --clasic
 
-$ helm install --name nginx-ingress stable/nginx-ingress --set rbac.create=true
+$ helm install stable/nginx-ingress --set controller.hostNetwork=true,controller.service.type="",controller.kind=DaemonSet
 
 $ ////helm repo add haproxy-ingress https://haproxy-ingress.github.io/charts 
 $ ////helm install haproxy-ingress haproxy-ingress/haproxy-ingress --create-namespace --namespace=ingress-controller --set controller.hostNetwork=true
