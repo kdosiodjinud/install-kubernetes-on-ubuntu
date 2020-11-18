@@ -31,8 +31,6 @@ $ vim /lib/systemd/system/docker.service //edit: ExecStart=/usr/bin/dockerd --ex
 $ systemctl daemon-reload
 $ systemctl restart docker
 
-$ echo "symfony-vps.reddwarf.cloud" > /etc/hostname
-
 $ reboot
 
 $ kubeadm init --pod-network-cidr=192.168.0.0/16 --control-plane-endpoint "89.221.220.50:6443"
@@ -43,8 +41,11 @@ $ echo "kubectl taint nodes --all node-role.kubernetes.io/master-" >> /etc/sysct
 $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
 $ snap install helm --clasic
-$ helm repo add haproxy-ingress https://haproxy-ingress.github.io/charts 
-$ helm install haproxy-ingress haproxy-ingress/haproxy-ingress --create-namespace --namespace=ingress-controller --set controller.hostNetwork=true
+
+$ helm install --name nginx-ingress stable/nginx-ingress --set rbac.create=true
+
+$ ////helm repo add haproxy-ingress https://haproxy-ingress.github.io/charts 
+$ ////helm install haproxy-ingress haproxy-ingress/haproxy-ingress --create-namespace --namespace=ingress-controller --set controller.hostNetwork=true
 
 vim /var/lib/kubelet/kubeadm-flags.env //and add atribute --resolv-conf=''
 
@@ -57,5 +58,5 @@ systemctl restart rsyslog
 
 ## From local machine
 ```sh
-$ scp root@your-master-ip-here:/etc/kubernetes/admin.conf ~/.kube/config
+$ scp vps:/etc/kubernetes/admin.conf ~/.kube/config
 ```
